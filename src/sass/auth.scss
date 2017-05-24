@@ -1,3 +1,4 @@
+@import 'common';
 @import "theme/_socicon.scss";
 @import "theme/_layout.scss";
 @import 'theme/buttons.scss';
@@ -23,6 +24,10 @@ $text-color: #ffffff;
 }
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
   @include placeholderStyle($text-color, 0.6);
+}
+
+footer {
+  position: static !important;
 }
 
 .auth-main {
