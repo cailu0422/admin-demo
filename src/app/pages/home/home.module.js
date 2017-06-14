@@ -10,10 +10,15 @@
         url : '/home',
         templateUrl : 'app/pages/home/home.html',
         title: 'Home Page',
-          sidebarMeta: {
-            icon : 'ion-android-home',  
-            order: 200,
-          },
+        controller: 'HomeController',
+        controllerAs: 'vm',
+        sidebarMeta: {
+          icon : 'ion-android-home',  
+          order: 200,
+        },
+        data: {
+          role:'admin'
+        }
     });
   }
 

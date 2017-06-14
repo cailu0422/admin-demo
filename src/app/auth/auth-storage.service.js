@@ -8,8 +8,11 @@
         this.get = get;
         this.set = set;
         this.remove = remove;
+        this.setCurrentUser = setCurrentUser;
+        this.getCurrentUser = getCurrentUser;
 
         var key = 'blur-admin-token';
+        var currentUser = 'current-user';
 
         function get() {
             return localStorageService.get(key);
@@ -21,6 +24,14 @@
 
         function remove() {
             return localStorageService.remove(key);
+        }
+
+        function setCurrentUser(user){
+            return localStorageService.set(currentUser, user);
+        }
+
+        function getCurrentUser(){
+            return localStorageService.get(currentUser);
         }
     }
 })();
