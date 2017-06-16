@@ -20,7 +20,7 @@
     }
 
     if (AuthStorage.get()) {
-      // $state.go('home');
+      $state.go('home');
     }
 
     function authenticate(credentials) {

@@ -10,6 +10,7 @@
         this.remove = remove;
         this.setCurrentUser = setCurrentUser;
         this.getCurrentUser = getCurrentUser;
+        this.removeCurrentUser = removeCurrentUser;
 
         var key = 'blur-admin-token';
         var currentUser = 'current-user';
@@ -32,6 +33,10 @@
 
         function getCurrentUser(){
             return localStorageService.get(currentUser);
+        }
+
+        function removeCurrentUser() {
+            return localStorageService.remove(currentUser);
         }
     }
 })();

@@ -30,30 +30,33 @@
     ];
 
     function getData(){
-      $http.post(ADMIN_VALUE.URL_USER_COUNT)
-            .then(function(res){
-                if (res.data.success === 'true') {
-                    $scope.charts[2].stats = res.data.result.count;
-                }
-            }, function(res){
-                $scope.charts[2].stats = 'error';
-            });
-        $http.post(ADMIN_VALUE.URL_REPORTS_COUNT)
-            .then(function(res){
-                if (res.data.success === 'true') {
-                    $scope.charts[1].stats = res.data.result.count;
-                }
-            }, function(res){
-                $scope.charts[1].stats = 'error';
-            });
-        $http.post(ADMIN_VALUE.URL_POSTS_COUNT)
-            .then(function(res){
-                if (res.data.success === 'true') {
-                    $scope.charts[0].stats = res.data.result.count;
-                }
-            }, function(res){
-                $scope.charts[0].stats = 'error';
-            });
+      $scope.charts[0].stats = $scope.counts.posts_count;
+      $scope.charts[1].stats = $scope.counts.reports_count;
+      $scope.charts[2].stats = $scope.counts.user_count;
+      // $http.post(ADMIN_VALUE.URL_USER_COUNT)
+      //       .then(function(res){
+      //           if (res.data.success === 'true') {
+      //               $scope.charts[2].stats = res.data.result.count;
+      //           }
+      //       }, function(res){
+      //           $scope.charts[2].stats = 'error';
+      //       });
+      //   $http.post(ADMIN_VALUE.URL_REPORTS_COUNT)
+      //       .then(function(res){
+      //           if (res.data.success === 'true') {
+      //               $scope.charts[1].stats = res.data.result.count;
+      //           }
+      //       }, function(res){
+      //           $scope.charts[1].stats = 'error';
+      //       });
+      //   $http.post(ADMIN_VALUE.URL_POSTS_COUNT)
+      //       .then(function(res){
+      //           if (res.data.success === 'true') {
+      //               $scope.charts[0].stats = res.data.result.count;
+      //           }
+      //       }, function(res){
+      //           $scope.charts[0].stats = 'error';
+      //       });
     }
 
     function getRandomArbitrary(min, max) {
