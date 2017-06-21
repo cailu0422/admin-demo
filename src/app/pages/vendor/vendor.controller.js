@@ -3,7 +3,7 @@
 
     angular.module('BlurAdmin.pages.vendor').controller('VendorController', VendorController);
 
-    function VendorController($scope, $http, ADMIN_VALUE) {
+    function VendorController($scope, $http, ADMIN_VALUE, $state) {
         var vm = this;
         $http.post(ADMIN_VALUE.URL_VENDOR_LIST)
             .then(function(res){
@@ -15,7 +15,7 @@
             });
 
         $scope.addVendor = function(){
-            console.log('go to add vendor page');
+            $state.go('vendor.add');
         }
         $scope.removeVendor = function(id){
             console.log(id);
