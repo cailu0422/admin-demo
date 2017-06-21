@@ -2,28 +2,28 @@
 
   <div class="row">
     <div class="col-md-6">
-      
+
       <div
           ba-panel
           ba-panel-title="Standard Fields"
           ba-panel-class="with-scroll">
         <div>
-          <form>
+          <form ng-submit="addVendorProcess()">
             <div class="form-group">
               <label for="input01">Name</label>
-              <input type="text" class="form-control" id="input01" placeholder="Please input name">
+              <input type="text" class="form-control" id="input01" placeholder="Please input name" ng-model="formData.name">
             </div>
 
             <div class="form-group">
               <label for="input02">Desc</label>
-              <input type="text" class="form-control" id="input02" placeholder="Please input desc">
+              <input type="text" class="form-control" id="input02" placeholder="Please input desc" ng-model="formData.desc">
             </div>
             <div class="form-group">
               <label for="input03">logo</label>
-              <input type="text" class="form-control" id="input03" placeholder="http://">
+              <input type="text" class="form-control" id="input03" placeholder="http://" ng-model="formData.logo">
               <span class="help-block sub-little-text">Please input logo image src.</span>
             </div>
-            
+            <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
       </div>
