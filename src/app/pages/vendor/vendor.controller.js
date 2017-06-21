@@ -11,8 +11,18 @@
             $state.go('vendor.add');
         }
         $scope.removeVendor = function(id){
-            console.log(id);
+            var params = {
+                action : "delete",
+                vendor_id : id
+            }
+            $http.post(ADMIN_VALUE.URL_VENDOR_ACTION, params)
+            .then(function(res){
+                if (res.data.success === 'true') {
+                    getVendorList();
+                }
+            }, function(res){
 
+            });
         }
         $scope.formData = {};
         $scope.addVendorProcess = function(){
