@@ -1,0 +1,35 @@
+<div class="add-row-editable-table">
+  <button class="btn btn-primary" ng-click="addCategory()">Add Category</button>
+</div>
+<table class="table table-bordered table-hover table-condensed">
+  <tr>
+    <td></td>
+    <td>Name</td>
+    <td>desc</td>
+    <td>logo</td>
+    <td>vendor</td>
+    <td>Actions</td>
+  </tr>
+  <tr ng-repeat="category in categories" class="editable-row">
+    <td>
+          {{ category._id }}
+    </td>
+    <td>
+          {{ category.name || 'empty' }}
+    </td>
+    <td>
+          {{ category.desc || 'empty' }}
+    </td>
+    <td>
+          {{ category.logo || 'empty' }}
+    </td>
+    <td>
+          {{ category.vendor.name || 'empty' }}
+    </td>
+    <td>
+      <div class="buttons">
+        <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeCategory(category._id)">Delete</button>
+      </div>
+    </td>
+  </tr>
+</table>
