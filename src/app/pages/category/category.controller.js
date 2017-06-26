@@ -40,6 +40,7 @@
             $http.post(ADMIN_VALUE.URL_CATEGORY_LIST)
             .then(function(res){
                 if (res.data.success === 'true') {
+                    $scope.selectedVendor.selected = undefined;
                     $scope.categories = res.data.result.category;
                 }
             }, function(res){
