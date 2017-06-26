@@ -23,16 +23,18 @@
 
         $scope.addCategoryProcess = function(){
             $scope.formData.action = "add";
-            console.log($scope.selectedVendor);
-            // $http.post(ADMIN_VALUE.URL_CATEGORY_ACTION, $scope.formData)
-            // .then(function(res){
-            //     if (res.data.success === 'true') {
-            //         getCategoryList();
-            //         open('app/pages/category/widgets/successModal.html');
-            //     }
-            // }, function(res){
+            $scope.formData.vendor = $scope.selectedVendor.selected._id;
+            if($scope.formData.vendor){
+              $http.post(ADMIN_VALUE.URL_CATEGORY_ACTION, $scope.formData)
+              .then(function(res){
+                  if (res.data.success === 'true') {
+                      getCategoryList();
+                      open('app/pages/category/widgets/successModal.html');
+                  }
+              }, function(res){
 
-            // });
+              });
+            }
         }
         function getCategoryList(){
             $http.post(ADMIN_VALUE.URL_CATEGORY_LIST)

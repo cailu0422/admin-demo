@@ -5,9 +5,9 @@
   <tr>
     <td></td>
     <td>Name</td>
-    <td>desc</td>
-    <td>logo</td>
-    <td>vendor</td>
+    <td>Desc</td>
+    <td>Icon</td>
+    <td>Vendor</td>
     <td>Actions</td>
   </tr>
   <tr ng-repeat="category in categories" class="editable-row">
@@ -21,7 +21,7 @@
           {{ category.desc || 'empty' }}
     </td>
     <td>
-          {{ category.logo || 'empty' }}
+          {{ category.icon || 'empty' }}
     </td>
     <td>
           {{ category.vendor.name || 'empty' }}
