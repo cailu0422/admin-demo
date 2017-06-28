@@ -1,0 +1,54 @@
+<div class="horizontal-scroll"></label>
+  <div class="form-group select-page-size-wrap ">
+    <label>Rows on page
+      <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker
+              ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
+      </select>
+    </label>
+  </div>
+  <table class="table" st-table="usersDataList">
+    <thead>
+    <tr class="sortable">
+      <th class="table-id" st-sort="user_id" st-sort-default="true">Id</th>
+      <th st-sort="nick">nick</th>
+      <th st-sort="create_time">create_time</th>
+      <th st-sort="user_verified">user_verified</th>
+      <th st-sort="ugc_count">ugc_count</th>
+      <th st-sort="following">following</th>
+      <th st-sort="follower">follower</th>
+      <th st-sort="point">point</th>
+      <th st-sort="gender">gender</th>
+      <th>Action</th>
+    </tr>
+    <tr>
+				<th colspan="12"><input st-search="nick" class="form-control search-input" placeholder="nick search ..." type="search"/></th>
+		</tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="user in vm.users">
+      <td class="table-id">{{user.user_id}}</td>
+      <td>{{user.nick}}</td>
+      <td>{{user.create_time | date:'yyyy-MM-dd HH:mm'}}</td>
+      <td>{{user.user_verified}}</td>
+      <td>{{user.ugc_count}}</td>
+      <td>{{user.following}}</td>
+      <td>{{user.follower}}</td>
+      <td>{{user.point}}</td>
+      <td>{{user.gender}}</td>
+      <td>
+        <div class="buttons">
+          <button ng-if="user.can_send_message == 1" class="btn btn-danger editable-table-button btn-xs" ng-click="">BAN</button>
+          <button ng-if="user.can_send_message == 0" class="btn btn-success editable-table-button btn-xs" ng-click="">UNBAN</button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="6" class="text-center">
+        <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
