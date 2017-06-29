@@ -13,7 +13,7 @@
         controller: 'UsersController',
         controllerAs: 'vm',
         sidebarMeta: {
-          icon : 'ion-android-people',  
+          icon : 'ion-android-people',
           order: 500,
         },
         data: {

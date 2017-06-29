@@ -6,7 +6,7 @@
       </select>
     </label>
   </div>
-  <table class="table" st-table="usersDataList">
+  <table class="table" st-table="usersDataList" st-safe-src="usersList">
     <thead>
     <tr class="sortable">
       <th class="table-id" st-sort="user_id" st-sort-default="true">Id</th>
@@ -18,14 +18,14 @@
       <th st-sort="follower">follower</th>
       <th st-sort="point">point</th>
       <th st-sort="gender">gender</th>
-      <th>Action</th>
+      <th st-sort="can_send_message">Action</th>
     </tr>
     <tr>
 				<th colspan="12"><input st-search="nick" class="form-control search-input" placeholder="nick search ..." type="search"/></th>
 		</tr>
     </thead>
     <tbody>
-    <tr ng-repeat="user in vm.users">
+    <tr ng-repeat="user in usersDataList">
       <td class="table-id">{{user.user_id}}</td>
       <td>{{user.nick}}</td>
       <td>{{user.create_time | date:'yyyy-MM-dd HH:mm'}}</td>
@@ -37,8 +37,8 @@
       <td>{{user.gender}}</td>
       <td>
         <div class="buttons">
-          <button ng-if="user.can_send_message == 1" class="btn btn-danger editable-table-button btn-xs" ng-click="">BAN</button>
-          <button ng-if="user.can_send_message == 0" class="btn btn-success editable-table-button btn-xs" ng-click="">UNBAN</button>
+          <button ng-if="user.can_send_message == 1" class="btn btn-danger editable-table-button btn-xs" ng-click="ban(user.user_id)">BAN</button>
+          <button ng-if="user.can_send_message == 0" class="btn btn-success editable-table-button btn-xs" ng-click="unban(user.user_id)">UNBAN</button>
         </div>
       </td>
     </tr>
