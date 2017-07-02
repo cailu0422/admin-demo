@@ -6,7 +6,7 @@
       </select>
     </label>
   </div>
-  <table class="table" st-table="usersDataList" st-safe-src="usersList">
+  <table class="table table-hover" st-table="usersDataList" st-safe-src="usersList">
     <thead>
     <tr class="sortable">
       <th class="table-id" st-sort="user_id" st-sort-default="true">Id</th>
@@ -25,7 +25,7 @@
 		</tr>
     </thead>
     <tbody>
-    <tr ng-repeat="user in usersDataList">
+    <tr ng-repeat="user in usersDataList" class="pointer" ng-click="userDetail(user)">
       <td class="table-id">{{user.user_id}}</td>
       <td>{{user.nick}}</td>
       <td>{{user.create_time | date:'yyyy-MM-dd HH:mm'}}</td>
@@ -37,16 +37,16 @@
       <td>{{user.gender}}</td>
       <td>
         <div class="buttons">
-          <button ng-if="user.can_send_message == 1" class="btn btn-danger editable-table-button btn-xs" ng-click="ban(user.user_id)">BAN</button>
-          <button ng-if="user.can_send_message == 0" class="btn btn-success editable-table-button btn-xs" ng-click="unban(user.user_id)">UNBAN</button>
+          <button ng-if="user.can_send_message == 1" class="btn btn-danger editable-table-button btn-xs" ng-click="ban(user.user_id, $event)">BAN</button>
+          <button ng-if="user.can_send_message == 0" class="btn btn-success editable-table-button btn-xs" ng-click="unban(user.user_id, $event)">UNBAN</button>
         </div>
       </td>
     </tr>
     </tbody>
     <tfoot>
     <tr>
-      <td colspan="6" class="text-center">
-        <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+      <td colspan="10" class="text-center">
+        <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="10"></div>
       </td>
     </tr>
     </tfoot>

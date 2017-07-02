@@ -8,31 +8,41 @@
         vm.count = 0;
         vm.users = {};
         $scope.usersDataList = [];
+        $scope.smartTablePageSize = 10;
+        $scope.currentUser = {};
 
         getUsersList();
 
-        $scope.ban = function(id){
+        $scope.userDetail = function(user){
+          open('app/pages/users/widgets/detailModal.html', user);
+        }
+
+        $scope.ban = function(id, $event){
           var params = {
               action : "ban",
               user_id : id
           }
           open('app/pages/users/widgets/dangerModal.html', params);
+          $event.stopPropagation();
         }
 
-        $scope.unban = function(id){
+        $scope.unban = function(id, $event){
           var params = {
               action : "unban",
               user_id : id
           }
           open('app/pages/users/widgets/infoModal.html', params);
+          $event.stopPropagation();
         }
 
         function getUsersList(){
-            $http.post(ADMIN_VALUE.URL_USERS_LIST)
+            var params = {
+              limit : 99999
+            }
+            $http.post(ADMIN_VALUE.URL_USERS_LIST, params)
             .then(function(res){
                 if (res.data.success === 'true') {
-                    vm.count = res.data.result.count;
-                    vm.users = res.data.result.users;
+                    console.log(res.data.result);
                     $scope.usersDataList = res.data.result.users;
                     $scope.usersList = res.data.result.users;
                 }
@@ -46,6 +56,7 @@
             animation: true,
             templateUrl: page,
             controller: function($scope, $uibModalInstance){
+                $scope.user = params;
                 $scope.ok = function () {
                   $uibModalInstance.close();
                 }

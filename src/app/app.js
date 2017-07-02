@@ -23,6 +23,12 @@ angular.module('BlurAdmin', [
     URL_USER_COUNT: 'http://118.89.159.242:9007/wsq/user/count/',
     URL_REPORTS_COUNT: 'http://118.89.159.242:9007/wsq/reports/count/',
     URL_POSTS_COUNT: 'http://118.89.159.242:9007/wsq/posts/count/',
+    URL_VENDOR_LIST: 'http://118.89.159.242:9007/wsq/vendor/',
+    URL_VENDOR_ACTION : 'http://118.89.159.242:9007/wsq/vendor/action',
+    URL_CATEGORY_LIST: 'http://118.89.159.242:9007/wsq/category/',
+    URL_CATEGORY_ACTION : 'http://118.89.159.242:9007/wsq/category/action',
+    URL_USERS_LIST : 'http://118.89.159.242:9007/wsq/users/',
+    URL_USERS_ACTION : 'http://118.89.159.242:9007/wsq/users/action'
   })
   .constant('AUTH_EVENTS', {
     loginSuccess: 'auth-login-success',

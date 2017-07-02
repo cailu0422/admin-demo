@@ -1,0 +1,98 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
+      <em class="ion-ios-close-empty sn-link-close"></em>
+    </button>
+    <h4 class="modal-title">General Information</h4>
+  </div>
+  <div class="modal-body">
+
+    <div class="row">
+      <div class="col-md-5">
+
+          <div class="col-sm-9">
+            <div class="userpic">
+              <div class="userpic-wrapper">
+                <img ng-src="{{ user.avatar_url }}" ng-click="uploadPicture()">
+              </div>
+              <!--i class="ion-ios-close-outline" ng-click="removePicture()" ng-if="!noPicture"></i>
+              <a href class="change-userpic" ng-click="uploadPicture()">Change Profile Picture</a>
+              <input type="file" ng-show="false" id="uploadFile" ng-file-select="onFileSelect($files)"-->
+            </div>
+          </div>
+
+      </div>
+      <div class="col-md-3">
+        <div class="row">
+          <label class="col-sm-6 control-label">nick</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-6 control-label">birth</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-6 control-label">create_time</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-6 control-label">follower</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-6 control-label">following</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-6 control-label">gender</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-6 control-label">point</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-6 control-label">ugc_count</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-6 control-label">user_verified</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-6 control-label">can_send_message</label>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="row">
+          <label class="col-sm-12 control-label">{{ user.nick }}</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-12 control-label">{{ user.birth }}</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-12 control-label">{{ user.create_time | date:'yyyy-MM-dd HH:mm'}}</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-12 control-label">{{ user.follower }}</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-12 control-label">{{ user.following }}</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-12 control-label">{{ user.gender }}</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-12 control-label">{{ user.point }}</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-12 control-label">{{ user.ugc_count }}</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-12 control-label">{{ user.user_verified }}</label>
+        </div>
+        <div class="row">
+          <label class="col-sm-12 control-label">{{ user.can_send_message }}</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="$dismiss()">Close</button>
+  </div>
+</div>
