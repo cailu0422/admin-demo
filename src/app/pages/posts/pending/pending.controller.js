@@ -1,45 +1,23 @@
 (function() {
     'use strict';
 
-    angular.module('BlurAdmin.pages.posts').controller('PostsController', PostsController);
+    angular.module('BlurAdmin.pages.posts').controller('PostsPendingController', PostsPendingController);
 
-    function PostsController($scope, $http, ADMIN_VALUE, $state, $uibModal) {
+    function PostsPendingController($scope, $http, ADMIN_VALUE, $state, $uibModal) {
         var vm = this;
         $scope.formData = {};
-        getVendorList();
-$scope.testa = 'aaaa';
-console.log('PostsController');
-        $scope.addVendor = function(){
-            $state.go('vendor.add');
-        }
-        $scope.removeVendor = function(id){
-            var params = {
-                action : "delete",
-                vendor_id : id
-            }
-            open('app/pages/vendor/widgets/dangerModal.html', params);
-        }
+        getPendingPostList();
 
-        $scope.addVendorProcess = function(){
-            $scope.formData.action = "add";
-            $http.post(ADMIN_VALUE.URL_VENDOR_ACTION, $scope.formData)
-            .then(function(res){
-                if (res.data.success === 'true') {
-                    getVendorList();
-                    open('app/pages/vendor/widgets/successModal.html');
-                }
-            }, function(res){
-
-            });
-        }
-        function getVendorList(){
+        function getPendingPostList(){
             var params = {
+              status : 1,
               limit : 99999
             }
-            $http.post(ADMIN_VALUE.URL_VENDOR_LIST, params)
+            $http.post(ADMIN_VALUE.URL_POSTS_LIST, params)
             .then(function(res){
                 if (res.data.success === 'true') {
-                    $scope.vendors = res.data.result.vendor;
+                    // $scope.vendors = res.data.result.vendor;
+                    console.log(res.data);
                 }
             }, function(res){
 

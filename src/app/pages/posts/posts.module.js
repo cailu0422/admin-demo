@@ -14,13 +14,14 @@
           controller: 'PostsController',
           title: 'Posts',
           sidebarMeta: {
-            icon: 'ion-grid',
-            order: 500,
+            icon: 'ion-film-marker',
+            order: 100,
           },
         }).state('posts.pending', {
           url: '/pending',
           templateUrl: 'app/pages/posts/pending/pending.html',
           title: 'Pending Posts',
+          controller: 'PostsPendingController',
           sidebarMeta: {
             order: 0,
           },
