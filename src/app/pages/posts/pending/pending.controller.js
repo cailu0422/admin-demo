@@ -6,7 +6,13 @@
     function PostsPendingController($scope, $http, ADMIN_VALUE, $state, $uibModal) {
         var vm = this;
         $scope.formData = {};
+        $scope.postsDataList = [];
+        $scope.smartTablePageSize = 10;
         getPendingPostList();
+
+        $scope.postDetail = function(post){
+          console.log(post);
+        }
 
         function getPendingPostList(){
             var params = {
@@ -16,8 +22,8 @@
             $http.post(ADMIN_VALUE.URL_POSTS_LIST, params)
             .then(function(res){
                 if (res.data.success === 'true') {
-                    // $scope.vendors = res.data.result.vendor;
-                    console.log(res.data);
+                    $scope.postsDataList = res.data.result.posts;
+                    $scope.postsList = res.data.result.posts;
                 }
             }, function(res){
 
