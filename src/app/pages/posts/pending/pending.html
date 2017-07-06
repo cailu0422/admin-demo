@@ -42,7 +42,7 @@
             </thead>
             <tbody>
             <tr ng-repeat="post in postsDataList" class="pointer" ng-click="postDetail(post)">
-              <td cs-select="post"></td>
+              <td cs-select="post" selected-post="selectedPost"></td>
               <td class="table-id">{{post.post_id}}</td>
               <td>{{post.text}}</td>
               <td>{{post.create_time | date:'yyyy-MM-dd HH:mm'}}</td>

@@ -5,13 +5,17 @@
 
     function PostsPendingController($scope, $http, ADMIN_VALUE, $state, $uibModal) {
         var vm = this;
-        $scope.formData = {};
+        $scope.selectedPost = [];
         $scope.postsDataList = [];
         $scope.smartTablePageSize = 10;
         getPendingPostList();
 
         $scope.postDetail = function(post){
           console.log(post);
+        }
+
+        $scope.publishPost = function(){
+            console.log($scope.selectedPost.join(','));
         }
 
         function getPendingPostList(){
