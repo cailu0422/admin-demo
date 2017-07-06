@@ -24,6 +24,7 @@
           <table class="table table-hover" st-table="postsDataList" st-safe-src="postsList">
             <thead>
             <tr class="sortable">
+              <th></th>
               <th class="table-id" st-sort="post_id" st-sort-default="true">Id</th>
               <th st-sort="text">text</th>
               <th st-sort="create_time">create_time</th>
@@ -41,6 +42,7 @@
             </thead>
             <tbody>
             <tr ng-repeat="post in postsDataList" class="pointer" ng-click="postDetail(post)">
+              <td cs-select="post"></td>
               <td class="table-id">{{post.post_id}}</td>
               <td>{{post.text}}</td>
               <td>{{post.create_time | date:'yyyy-MM-dd HH:mm'}}</td>
