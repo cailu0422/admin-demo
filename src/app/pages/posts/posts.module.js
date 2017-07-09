@@ -29,6 +29,7 @@
           url: '/verifying',
           templateUrl: 'app/pages/posts/verifying/verifying.html',
           title: 'Verifying Posts',
+          controller: 'PostsVerifyingController',
           sidebarMeta: {
             order: 100,
           },
@@ -36,6 +37,7 @@
           url: '/approved',
           templateUrl: 'app/pages/posts/approved/approved.html',
           title: 'Approved Posts',
+          controller: 'PostsApprovedController',
           sidebarMeta: {
             order: 200,
           },
@@ -43,6 +45,7 @@
           url: '/rejected',
           templateUrl: 'app/pages/posts/rejected/rejected.html',
           title: 'Rejected Posts',
+          controller: 'PostsRejectedController',
           sidebarMeta: {
             order: 300,
           },

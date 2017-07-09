@@ -1,33 +1,71 @@
 <div class="widgets">
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
+      <div ba-panel ba-panel-title="Posts List" ba-panel-class="with-scroll">
 
-      <div
-          ba-panel
-          ba-panel-title="Standard Fields"
-          ba-panel-class="with-scroll">
-        <div>
-          <form ng-submit="addVendorProcess()">
-            <div class="form-group">
-              <label for="input01">Name</label>
-              <input type="text" class="form-control" id="input01" placeholder="Please input name" ng-model="formData.name">
+        <div class="horizontal-scroll">
+          <div class="row">
+            <div class="col-md-2">
+              <div class="form-group select-page-size-wrap ">
+                <label>Rows on page
+                  <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker
+                          ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
+                  </select>
+                </label>
+              </div>
             </div>
-
-            <div class="form-group">
-              <label for="input02">Desc</label>
-              <input type="text" class="form-control" id="input02" placeholder="Please input desc" ng-model="formData.desc">
+            <div class="col-md-9 post-action-button">
+              <button class="btn btn-success" ng-click="pendingPost()">Pending</button>
+              <button class="btn btn-warning" ng-click="rejectPost()">Reject</button>
+              <button class="btn btn-danger" ng-click="deletePost()">Delete</button>
             </div>
-            <div class="form-group">
-              <label for="input03">logo</label>
-              <input type="text" class="form-control" id="input03" placeholder="http://" ng-model="formData.logo">
-              <span class="help-block sub-little-text">Please input logo image src.</span>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+          </div>
+          <table class="table table-hover" st-table="postsDataList" st-safe-src="postsList">
+            <thead>
+            <tr class="sortable">
+              <th></th>
+              <th class="table-id" st-sort="post_id" st-sort-default="true">Id</th>
+              <th st-sort="text">text</th>
+              <th st-sort="create_time">create_time</th>
+              <th st-sort="content_type">content_type</th>
+              <th st-sort="category_id">category_id</th>
+              <th st-sort="bury_count">bury_count</th>
+              <th st-sort="digg_count">digg_count</th>
+              <th st-sort="comment_count">comment_count</th>
+              <th st-sort="share_count">share_count</th>
+              <th st-sort="status">status</th>
+            </tr>
+            <tr>
+                <th colspan="12"><input st-search class="form-control search-input" placeholder="global search ..." type="search"/></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="post in postsDataList" class="pointer" ng-click="postDetail(post)">
+              <td cs-select="post" selected-post="selectedPost"></td>
+              <td class="table-id">{{post.post_id}}</td>
+              <td>{{post.text}}</td>
+              <td>{{post.create_time | date:'yyyy-MM-dd HH:mm'}}</td>
+              <td>{{post.content_type}}</td>
+              <td>{{post.category_id}}</td>
+              <td>{{post.bury_count}}</td>
+              <td>{{post.digg_count}}</td>
+              <td>{{post.comment_count}}</td>
+              <td>{{post.share_count}}</td>
+              <td>{{post.status}}</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+              <td colspan="10" class="text-center">
+                <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="10"></div>
+              </td>
+            </tr>
+            </tfoot>
+          </table>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
 
