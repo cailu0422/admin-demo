@@ -1,0 +1,48 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
+      <em class="ion-ios-close-empty sn-link-close"></em>
+    </button>
+    <h4 class="modal-title">General Information</h4>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-10">
+        <label class="col-sm-2 control-label">id :</label>
+        <label class="col-sm-2 control-label">{{ post.post_id }}</label>
+        <label class="col-sm-2 control-label">status :</label>
+        <label class="col-sm-1 control-label">{{ post.status }}</label>
+        <label class="col-sm-2 control-label">create_time :</label>
+        <label class="col-sm-3 control-label">{{ post.create_time | date:'yyyy-MM-dd HH:mm' }}</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <label class="col-sm-2 control-label">nick :</label>
+        <label class="col-sm-3 control-label">{{ post.user.nick }}</label>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-8">
+        <label class="col-sm-12 control-label">{{ post.text }}</label>
+      </div>
+    </div>
+
+    <div class="row" ng-if="post.content_type == '103'">
+      <div class="col-md-12" ng-repeat="image in post.image_list">
+        <div class="row">
+          <img ng-src="{{ image.url }}" class="post-image">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="$dismiss()">Close</button>
+  </div>
+</div>

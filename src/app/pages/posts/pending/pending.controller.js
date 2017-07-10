@@ -12,6 +12,8 @@
 
         $scope.postDetail = function(post){
           console.log(post);
+          
+          open('app/pages/posts/widgets/detailModal.html', post, 'lg');
         }
 
         $scope.publishPost = function(){
@@ -89,11 +91,13 @@
 
             });
         }
-        function open(page, params){
+        function open(page, params, size){
           var modalInstance = $uibModal.open({
             animation: true,
             templateUrl: page,
+            size: size,
             controller: function($scope, $uibModalInstance){
+                $scope.post = params;
                 $scope.ok = function () {
                   getPendingPostList();
                   $uibModalInstance.close();
