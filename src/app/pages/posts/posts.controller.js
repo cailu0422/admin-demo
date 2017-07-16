@@ -7,8 +7,7 @@
         var vm = this;
         $scope.formData = {};
         getVendorList();
-$scope.testa = 'aaaa';
-console.log('PostsController');
+
         $scope.addVendor = function(){
             $state.go('vendor.add');
         }

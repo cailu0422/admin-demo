@@ -13,10 +13,11 @@
     var vm = this;
     vm.authenticate = authenticate;
     vm.credentials = {
-      username: '',
+      account: '',
       password: '',
       company: 'Yuninno',
-      product: 'Duanzi'
+      product: 'Duanzi',
+      regtype: 'email'
     }
 
     if (AuthStorage.get()) {
@@ -27,8 +28,9 @@
       if (credentials) {
         credentials.company = 'Yuninno';
         credentials.product = 'Duanzi';
+        credentials.regtype = 'email';
       }
-      
+
       // $http.post(ADMIN_VALUE.URL_LOGIN, credentials)
       //           .then(function (res) {
       //             AuthStorage.set(res.data.success === 'true' ? true : false);
@@ -38,17 +40,8 @@
       //           }, function (res) {
       //               console.log(res);
       //           });
-      var loginPromise = AuthService.login(credentials);
-      loginPromise.then(function (user) {
-        //  console.log('login success promise', user);
-        // $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
-        // $scope.$parent.setCurrentUser(user);
+      AuthService.login(credentials);
 
-     
-      }, function () {
-        console.log('login fail promise');
-        // $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
-      });
     }
   }
 
