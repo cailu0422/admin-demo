@@ -5,8 +5,8 @@
 
     function ReportPostController($scope, $http, ADMIN_VALUE, $state, $uibModal) {
         var vm = this;
-        $scope.selectedPost = [];
-        $scope.postsDataList = [];
+        $scope.selectedReport = [];
+        $scope.reportsDataList = [];
         $scope.smartTablePageSize = 10;
         getReportPostList();
 
@@ -16,29 +16,7 @@
           open('app/pages/posts/widgets/detailModal.html', post, 'lg');
         }
 
-        $scope.publishPost = function(){
-          //action mark status 3
-            var post_id = $scope.selectedPost.join(',');
-            if (post_id){
-              var params = {
-                action : 'mark',
-                status : 3,
-                post_id : post_id
-              }
-              $http.post(ADMIN_VALUE.URL_POSTS_ACTION, params)
-              .then(function(res){
-                  if (res.data.success === 'true') {
-                      open('app/pages/posts/widgets/successModal.html');
-                  }
-              }, function(res){
-
-              });
-            } else {
-              open('app/pages/posts/widgets/warningModal.html');
-            }
-
-        }
-        $scope.rejectPost = function(){
+        $scope.rejectReport = function(){
           //action mark status 4
           var post_id = $scope.selectedPost.join(',');
           if (post_id){
@@ -59,7 +37,7 @@
             open('app/pages/posts/widgets/warningModal.html');
           }
         }
-        $scope.deletePost = function(){
+        $scope.deleteReport = function(){
           //action delete
           var post_id = $scope.selectedPost.join(',');
           if (post_id){
@@ -82,11 +60,11 @@
             .then(function(res){
               console.log(res);
                 if (res.data.success === 'true') {
-                    $scope.postsDataList = res.data.result.posts;
-                    $scope.postsList = res.data.result.posts;
+                    $scope.reportsDataList = res.data.result.reports;
+                    $scope.reportsList = res.data.result.reports;
                 } else {
-                  $scope.postsDataList = [];
-                  $scope.postsList = [];
+                  $scope.reportsDataList = [];
+                  $scope.reportsList = [];
                 }
             }, function(res){
 

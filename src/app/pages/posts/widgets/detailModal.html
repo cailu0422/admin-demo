@@ -31,8 +31,8 @@
 
     <div class="row" ng-if="post.content_type == '103'">
       <div class="col-md-12" ng-repeat="image in post.image_list">
-        <div class="row">
-          <img ng-src="{{ image.url }}" class="post-image">
+        <div class="row" class="post-image">
+          <img ng-src="{{ image.url }}">
         </div>
       </div>
     </div>

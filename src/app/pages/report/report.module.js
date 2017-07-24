@@ -19,7 +19,7 @@
       },
     }).state('report.post', {
       url: '/post',
-      templateUrl: 'app/pages/posts/pending/pending.html',
+      templateUrl: 'app/pages/report/post/post.html',
       title: 'Report Post',
       controller: 'ReportPostController',
       sidebarMeta: {
